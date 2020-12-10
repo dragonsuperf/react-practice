@@ -1,6 +1,34 @@
 import { React, Component } from 'react';
 import { Carousel, Container, Row, Col } from 'react-bootstrap';
-import './CarouselHeader.css'
+import styled from 'styled-components';
+
+const ContainerWithBackground = styled(Container)`
+  background:linear-gradient(to bottom,rgba(0,0,0,.4),rgba(0,0,0,.4)),url('https://1cup.kr/imgs/bgs.jpg');
+  width: 100%;
+`
+
+const CarouselHeaderText = styled.h3`
+  text-align: center;
+  color: white;
+  font-size: 35px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+`
+
+const ImgCaption = styled.p`
+  margin-top:10px;
+  font-size:14px;
+  color:white;
+`
+
+const ImgBox = styled.img`
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, .8);
+  vertical-align: middle;
+
+  margin-top: 15px;
+  width: 95%;
+  border-radius: 30px;
+`
 
 class CarouselHeader extends Component {
   static defaultProps = {
@@ -21,8 +49,8 @@ class CarouselHeader extends Component {
     }
 
     return (
-        <Container fluid className="carousel-background">
-          <h3 className="carousel-header-text">Hot Class</h3>
+        <ContainerWithBackground fluid>
+          <CarouselHeaderText>Hot Class</CarouselHeaderText>
           <Carousel controls={false} indicators={false}>
             {
               [...Array(carouselCount)].map((element, index) => {
@@ -33,9 +61,9 @@ class CarouselHeader extends Component {
                         {
                           imgList.slice(index * this.props.itemCount, index * this.props.itemCount + this.props.itemCount).map((element, colIndex) => {
                             return (
-                              <Col xs lg="3">
-                                <img className="img-box" src="/statics/thumbnail/003/200x200.crop.jpg" alt={index} />
-                                <p className="img-caption">{imgList[colIndex + index * this.props.itemCount]}</p>
+                              <Col xs lg="3" className="text-center">
+                                <ImgBox src="/statics/thumbnail/003/200x200.crop.jpg" alt={index} />
+                                <ImgCaption>{imgList[colIndex + index * this.props.itemCount]}</ImgCaption>
                               </Col>
                             )
                           })
@@ -47,7 +75,7 @@ class CarouselHeader extends Component {
               })
             }
           </Carousel>
-        </Container>
+        </ContainerWithBackground>
     );
   }
 }
