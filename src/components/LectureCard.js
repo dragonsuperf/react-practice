@@ -1,5 +1,5 @@
 import { React, Component } from 'react';
-import { Card, Container, Row, Col } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const CardContainer = styled(Card)`

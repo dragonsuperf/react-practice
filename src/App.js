@@ -4,6 +4,7 @@ import {Link, Route, BrowserRouter as Router} from 'react-router-dom';
 import './index'
 import Main from './components/Main'
 import Lecture from './components/Lecture'
+import LinkButton from './components/LinkButton'
 import {Pagination} from 'react-bootstrap';
 
 function App() {
@@ -16,13 +17,17 @@ function App() {
         <Link to="/Lecture">
           <button>Lecture</button>
         </Link>
+        <Link to="/LinkButton">
+          <button>Button</button>
+        </Link>
         <main>
           <Route exact path="/" component={Main} />
           <Route path="/Main" component={Main} />
           <Route path="/Lecture" component={Lecture} />
+          <Route path="/LinkButton" component={LinkButton} />
         </main>
       </Router>
-      
+
       <Pagination>
         <Pagination.First />
         <Pagination.Prev />
