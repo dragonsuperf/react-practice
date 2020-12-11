@@ -22,6 +22,7 @@ function App() {
           <Route path="/Lecture" component={Lecture} />
         </main>
       </Router>
+      
       <Pagination>
         <Pagination.First />
         <Pagination.Prev />
