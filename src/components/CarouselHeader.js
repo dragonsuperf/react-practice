@@ -34,7 +34,17 @@ class CarouselHeader extends Component {
   static defaultProps = {
     carouselCount: 3,
     itemCount: 3,
-    imgs: ['oneoneoneone','twotwotwotwo','threethreethree','fourfourfour','fivefivefive','sixsixsix','sevensevenseven','eighteighteight','nineninenine','tententen'],
+    imgs: [
+      {id:'1', content:'oneoneoneone'},
+      {id:'2', content:'twotwotwo'},
+      {id:'3', content:'threethreethree'},
+      {id:'4', content:'fourfourfour'},
+      {id:'5', content:'fivefivefive'},
+      {id:'6', content:'sixsixsix'},
+      {id:'7', content:'sevensevenseven'},
+      {id:'8', content:'eighteighteight'},
+      {id:'9', content:'nineninenine'}
+    ],
   }
 
   render() {
@@ -55,15 +65,15 @@ class CarouselHeader extends Component {
             {
               [...Array(carouselCount)].map((element, index) => {
                 return (
-                  <Carousel.Item interval={2000}>
+                  <Carousel.Item key={index} interval={2000}>
                     <Container className="carousel-header">
                       <Row className="justify-content-md-center">  
                         {
                           imgList.slice(index * this.props.itemCount, index * this.props.itemCount + this.props.itemCount).map((element, colIndex) => {
                             return (
-                              <Col xs lg="3" className="text-center">
+                              <Col key={colIndex} xs lg="3" className="text-center">
                                 <ImgBox src="/statics/thumbnail/003/200x200.crop.jpg" alt={index} />
-                                <ImgCaption>{imgList[colIndex + index * this.props.itemCount]}</ImgCaption>
+                                <ImgCaption>{imgList[colIndex + index * this.props.itemCount].content}</ImgCaption>
                               </Col>
                             )
                           })

@@ -1,5 +1,5 @@
 import { React, Component } from 'react';
-import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import styled from 'styled-components';
 
