@@ -1,11 +1,11 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link, Route, BrowserRouter as Router} from 'react-router-dom';
-import './index'
 import Main from './components/Main'
 import Lecture from './components/Lecture'
 import LinkButton from './components/LinkButton'
 import {Pagination} from 'react-bootstrap';
+import React from 'react';
 
 function App() {
 	return (
