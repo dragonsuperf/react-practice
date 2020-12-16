@@ -18,6 +18,7 @@ deploy:
     # rest of S3 deployment for MyApp.zip
     # ⋮
   - provider: codedeploy
+    edge: true
     bucket: hancup-storage
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
@@ -27,6 +28,5 @@ deploy:
     deployment_group: hancup-deploy-gruop
     region: ap-northeast-2 # us-east-1 region이 아니라면 명시해주어야함
     wait-until-deployed: true
-    edge: true
     on:
       branch: master
