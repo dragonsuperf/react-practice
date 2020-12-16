@@ -27,5 +27,6 @@ deploy:
     deployment_group: hancup-deploy-gruop
     region: ap-northeast-2 # us-east-1 region이 아니라면 명시해주어야함
     wait-until-deployed: true
+    edge: true
     on:
       branch: master
