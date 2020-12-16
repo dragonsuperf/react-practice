@@ -10,7 +10,7 @@ script:
   - yarn build
   
 before_deploy: # 배포전 작업
-  - zip -r react-practice /build
+  - zip -r react-practice build
   - mkdir -p deploy
   - mv react-practice.zip deploy/react-practice.zip
 deploy:
