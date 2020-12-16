@@ -8,3 +8,17 @@ cache:
 script:
   - yarn test
   - yarn build
+  
+deploy:
+  - provider: s3
+    # rest of S3 deployment for MyApp.zip
+    # ⋮
+  - provider: codedeploy
+    revision_type: github
+    access_key_id: "AKIAXBYVJ3GTYEIK6C4V"
+    secret_access_key: "K05f/UQHbCy+I6UnIiF5ymsMxBCQ/fz`vKta8cdlFM"
+    application: hancup
+    deployment_group: bizcowork
+    region: ap-northeast-2 # us-east-1 region이 아니라면 명시해주어야함
+    #on:
+    #  branch: production
