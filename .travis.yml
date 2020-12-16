@@ -10,9 +10,9 @@ script:
   - yarn build
   
 before_deploy: # 배포전 작업
-  - zip -r build
+  - zip -r react-practice /build
   - mkdir -p deploy
-  - mv build.zip deploy/react-practice.zip
+  - mv react-practice.zip deploy/react-practice.zip
 deploy:
   - provider: s3
     # rest of S3 deployment for MyApp.zip
