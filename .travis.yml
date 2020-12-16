@@ -7,11 +7,10 @@ cache:
 
 script:
   - yarn test
-  - yarn build
   
 before_deploy: # 배포전 작업
   - rm -rf node_modules
-  - zip -r react-practice build
+  - zip -r react-practice *
   - mkdir -p deploy
   - mv react-practice.zip deploy/react-practice.zip
 deploy:
