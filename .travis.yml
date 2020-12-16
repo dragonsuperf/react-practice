@@ -20,7 +20,7 @@ deploy:
     secret_access_key: $AWS_SECRET_KEY
     region: ap-northeast-2 # us-east-1 region이 아니라면 명시해주어야함
     skip_cleanup: true
-    local_dir: build
+    local_dir: deploy
     wait-until-deployed: true
     on:
       repo: dragonsuperf/react-practice
