@@ -9,16 +9,23 @@ script:
   - yarn test
   - yarn build
   
+before_deploy: # 배포전 작업
+  - zip -r react-practice
+  - mkdir -p deploy
+  - mv react-practice.zip deploy/react-practice.zip
 deploy:
   - provider: s3
     # rest of S3 deployment for MyApp.zip
     # ⋮
   - provider: codedeploy
-    revision_type: github
-    access_key_id: "AKIAXBYVJ3GTYEIK6C4V"
-    secret_access_key: "K05f/UQHbCy+I6UnIiF5ymsMxBCQ/fz`vKta8cdlFM"
+    bucket: hancup-storage
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    key: react-practice
+    bundle_type: zip
     application: hancup
-    deployment_group: bizcowork
+    deployment_group: hancup-deploy-gruop
     region: ap-northeast-2 # us-east-1 region이 아니라면 명시해주어야함
-    #on:
-    #  branch: production
+    wait-until-deployed: true
+    on:
+      branch: master

@@ -22,7 +22,7 @@ function App() {
         </Link>
         <main>
           <Route exact path="/" component={Main} />
-          <Route path="/Main" component={Main} />
+          <Route path="/Main" component={Main} /> 
           <Route path="/Lecture" component={Lecture} />
           <Route path="/LinkButton" component={LinkButton} />
         </main>
