@@ -15,18 +15,26 @@ before_deploy: # 배포전 작업
   - mv react-practice.zip deploy/react-practice.zip
 deploy:
   - provider: s3
-    # rest of S3 deployment for MyApp.zip
-    # ⋮
-  - provider: codedeploy
-    edge: true
     bucket: hancup-storage
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
-    key: react-practice
+    region: ap-northeast-2 # us-east-1 region이 아니라면 명시해주어야함
+    skip_cleanup: true
+    local_dir: build
+    wait-until-deployed: true
+    on:
+      repo: dragonsuperf/react-practice
+      branch: master
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: hancup-storage
+    key: react-practice.zip
     bundle_type: zip
     application: hancup
     deployment_group: hancup-deploy-gruop
     region: ap-northeast-2 # us-east-1 region이 아니라면 명시해주어야함
     wait-until-deployed: true
     on:
+      repo: dragonsuperf/react-practice
       branch: master
