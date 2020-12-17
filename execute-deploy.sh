@@ -1,5 +1,4 @@
 #!/bin/bash
 
-cd /home/ec2-user/deploy/react-practice
-yarn
-yarn build
+cd /home/ec2-user/docker-image
+docker-compose up -d
