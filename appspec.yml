@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/deploy/react-pratice/
+    destination: /home/ec2-user/deploy/react-practice/
 hooks:
   AfterInstall:
     - location: execute-deploy.sh

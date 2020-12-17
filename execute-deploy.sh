@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd /home/ubuntu/react-practice
+cd /home/ec2-user/deploy/react-practice
 yarn
 yarn build
